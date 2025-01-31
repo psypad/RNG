@@ -1,4 +1,5 @@
 use rand::Rng;
+use core::num;
 use std::io;
 
 fn main() {
@@ -28,6 +29,19 @@ fn main() {
     
     // ends here
 
+   
+    let mut input = String::new();
+
+    println!("enter a number: ");
+
+    io::stdin()
+        .read_line(&mut input)
+        .expect("failed to readline");
+
+    let num = input.trim().parse::<usize>().expect("please enter a number");
+
+    println!("you entered: {}", num); 
+
     for _i in 1..10{
         let n1: u8 = rng.random();
         v1.push(n1);
@@ -46,8 +60,32 @@ fn main() {
     matrix.push(v1);
     matrix.push(v2);
     matrix.push(v3);
+    
+    let mut rng = rand::rng();
 
-    println!("\n matrix {:?}", matrix);
+    let mut rand_arr: Vec<u8> = vec![];
+
+    let mut input = String::new();
+    println!("Enter an index (0-{}):", values.len() - 1);
+
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+
+    match input.trim().parse::<usize>() {
+        Ok(index) if index < values.len() => {
+            let array_select: u8 = rng.random_range(1..3);
+    
+            rand_arr.push(matrix[array_select[input]]);
+        }
+        Ok(_) => println!("Error: Index out of bounds!"),
+        Err(_) => println!("Error: Please enter a valid number."),
+    }
+
+    for i in 0..20{
+               rand_arr.push(matrix[array_select[num]]);                 
+    }
+
+    println!("\nmatrix {:?}", matrix);
 
     println!("Hello, world!");
+
 }
