@@ -1,6 +1,5 @@
-use rand::Rng;
-use core::num;
-use std::io;
+use rand::Rng; 
+use std::{any::type_name_of_val, io};
 
 fn main() {
     let mut rng = rand::rng();
@@ -11,7 +10,7 @@ fn main() {
     let mut v3: Vec<u8> = vec![];
 
     // num Input
-
+ 
     /*
     println!("Enter a name:");
 
@@ -42,6 +41,8 @@ fn main() {
 
     println!("you entered: {}", num); 
 
+    println!(type_name_of_val(num));
+
     for _i in 1..10{
         let n1: u8 = rng.random();
         v1.push(n1);
@@ -61,6 +62,7 @@ fn main() {
     matrix.push(v2);
     matrix.push(v3);
     
+    /* 
     let mut rng = rand::rng();
 
     let mut rand_arr: Vec<u8> = vec![];
@@ -82,7 +84,7 @@ fn main() {
 
     for i in 0..20{
                rand_arr.push(matrix[array_select[num]]);                 
-    }
+    } */
 
     println!("\nmatrix {:?}", matrix);
 
